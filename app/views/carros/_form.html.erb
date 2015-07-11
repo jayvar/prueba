@@ -1,0 +1,17 @@
+<%= simple_form_for @carro, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@carro[:name]) %>
+  <%= f.input :description %>
+  <%= error_span(@carro[:description]) %>
+  <%= f.association :cochera %>
+  <%= error_span(@carro[:cochera]) %>
+  <%= f.input :picture, as: :file %>
+  <%= error_span(@carro[:picture]) %>
+  <!-- Automatic added attribute for tagging support -->
+  <%= f.input :tag_list %>
+  <%= error_span(@carro[:tag_list]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                carros_path, :class => 'btn btn-default' %>
+<% end %>
